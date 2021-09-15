@@ -16,13 +16,13 @@ public class Jdbc4DMLInsert {
 
         Statement st = con.createStatement();
 
-//        ResultSet rs = st.executeQuery("SELECT * FROM bolumler");
-//
-//        while (rs.next()) {
-//
-//
-//            System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
-//        }
+        ResultSet rs = st.executeQuery("SELECT * FROM bolumler");
+
+        while (rs.next()) {
+
+
+            System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
+        }
 
 //   ORNEK1: Bolumler tablosuna yeni bir kayit (80, 'ARGE', 'ISTANBUL')
         //  ekleyelim ve eklenen kaydi teyit icin sorgulayalim.
@@ -66,8 +66,13 @@ public class Jdbc4DMLInsert {
 
         }
         st.executeBatch();
-
-
+        // 3. YONTEM
+        //-----------------------------------------------------
+        // batch metoduyla birlikte PreparedStatement kullanmak en efektif yontemdir.
+        // bir sonraki ornekte bunu gerceklestirecegiz.
+        con.close();
+        st.close();
+        rs.close();
 
 
     }
