@@ -66,6 +66,7 @@ public class Jdbc2Query02 {
 	  ORNEK4: Maasi en yuksek 10 kisinin bolumunu,adini ve maasini listeyiniz
 	========================================================================*/
 
+
         ResultSet sonuc2 = st.executeQuery("SELECT bolum_isim, personel_isim, maas"
                 + " FROM personel p"
                 + " FULL JOIN bolumler b "
